@@ -3,6 +3,7 @@
 #include<string>
 #include<vector>
 #include"../lib/mmFuncionCaracteres2.h"
+#include"../lib/mmBarradeProgresoUser.h"
 
 using namespace std;
 
@@ -31,13 +32,15 @@ void mmJustLectura(string pathfile)
 {
     string txt;
     fstream f;
-
+    int i=1;
     f.open(pathfile, ios_base::in);
 
     do
     {
        getline( f, txt);
+       mmBarraProgresoUser(10*i);
        cout<<txt<<endl;
+       i++;
 
     } while (!f.eof());
         

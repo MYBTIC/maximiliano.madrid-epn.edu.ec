@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include<algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -68,7 +70,7 @@ bool mmCoordenadaMayus(string texto){
 
 vector<int> mmCorregirVectorNumeros(vector<int>&VectorNumeros, int h){
 
-    VectorNumeros[0]=1;
+    VectorNumeros[0]=0;
     VectorNumeros[1]=5;
     VectorNumeros[2]=4;
     VectorNumeros[3]=2;
@@ -82,3 +84,25 @@ vector<int> mmCorregirVectorNumeros(vector<int>&VectorNumeros, int h){
 
     return VectorNumeros;
 }
+
+vector<int> mmEliminarRepetidos(std::vector<int>& numeros) {
+    // Creamos un unordered_set para almacenar los números únicos
+    unordered_set<int> unicos;
+    
+    // Iteramos a través del vector y agregamos los números únicos al unordered_set
+    for (int numero : numeros) {
+        unicos.insert(numero);
+    }
+    
+    // Creamos un nuevo vector con los números únicos
+    vector<int> resultado;
+    resultado.reserve(unicos.size()); // Reservamos memoria para evitar re-alojamientos
+    
+    for (int numero : unicos) {
+        resultado.push_back(numero);
+    }
+    
+    return resultado;
+}
+
+

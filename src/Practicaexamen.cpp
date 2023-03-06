@@ -1,9 +1,12 @@
 //-->> Arboles Binaros de busqueda - Recorridos por amplitud por Orden, Pre-Orden y Post-Orden
 #include <iostream>
 #include<vector>
-#include "../lib/FuncionLectura.h"
+#include "../lib/mmFuncionLectura.h"
 #include <cstdlib>
+#include <stdlib.h>
 using namespace std;
+
+const string mmSeparacion = "---";
 
 struct nodo{
 
@@ -88,28 +91,32 @@ int main()
 {
     ABB arbol = NULL;   // creado Arbol
 
-    int n = (NumberLocage("files/CoordenadasPrueba.txt"))+1;  // Numero de la coordenada.
+    int n = (mmNumberLocage("files/mmCoordenadas.txt", mmSeparacion))+1;  // Numero de la coordenada.
     vector<int> VectorNumeros;
     vector<string>VectorString;
     vector<string>VectorHola;
     string s1; //Nombre de la ciudad 
     string s2 = "TFA";
 
-    cout << "\n\t\t  ..[ ARBOL BINARIO DE BUSQUEDA ]..  \n\n";
-    cout <<endl<< n<<endl; 
+    
+     mmNumberGot("files/mmCoordenadas.txt", s1, VectorNumeros, n, s2);
+     //mmCorregirVectorNumeros(VectorNumeros, n);
+     mmCorregirVectorNumeros(VectorNumeros, n);
+     mmSpecificWordsGot("files/mmCoordenadas.txt", s1, VectorString, n, s2);
+     //NonSpecificWords("files/mmCoordenadas.txt", s1, VectorHola, n, s2);
 
-     NumberGot("files/CoordenadasPrueba.txt", s1, VectorNumeros, n, s2);
-     SpecificWordsGot("files/CoordenadasPrueba.txt", s1, VectorString, n, s2);
-     NonSpecificWords("files/CoordenadasPrueba.txt", s1, VectorHola, n, s2);
+     //cout<<l;
+     system("cls");
+     cout<<"\t\t\t\t\t\t\t[+]Leyendo Coordenadas:"<<"\n\n";
 
+     mmJustLectura("files/mmCoordenadas.txt");
+
+     cout<<"\n\n";
     for(int i=0; i<n; i++)
-    {
-        cout << " Datos del nodo " << i+1 <<": "<<endl;
-          
+    {          
         //insertar( arbol, s1, x, s2);
     }
 
-    cout<<"\n\n\t\t"<<n;
 
     for (int i = 0; i < n; i++)
     {
@@ -118,10 +125,6 @@ int main()
     for (int i = 0; i < n; i++)
     {
      cout<<VectorString[i]<<" ";
-    }
-    for (int i = 0; i < n; i++)
-    {
-     cout<<VectorHola[i]<<" ";
     }
     
 

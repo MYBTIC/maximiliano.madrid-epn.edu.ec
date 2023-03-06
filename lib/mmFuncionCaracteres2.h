@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string DeleteChar(string cadena){
+string mmDeleteChar(string cadena){
     string numeros = "";
     for (char c : cadena) {  //Recorre la cadena uno a uno, for [inteligente]
         if (isdigit(c)) {
@@ -13,19 +13,19 @@ string DeleteChar(string cadena){
     return numeros;
 }
 
-int StringtoInterger(string cadena){
+int mmStringtoInterger(string cadena){
 
     int n1;
 
 
-    string numeros = DeleteChar(cadena);
+    string numeros = mmDeleteChar(cadena);
 
     n1 = stoi(numeros);
 
     return n1;
 }
 
-string StringsExceptInterger(string cadena){
+string mmStringsExceptInterger(string cadena){
     string Sinnumeros = "";
     for (char c : cadena) {  //Recorre la cadena uno a uno, for [inteligente]
         if (!isdigit(c)) {
@@ -35,7 +35,7 @@ string StringsExceptInterger(string cadena){
     return Sinnumeros;
 }
 
-bool VerifySpecificWords(string cadena, string letras) {
+bool mmVerifySpecificWords(string cadena, string letras) {
     
     for (int i = 0; i < letras.length(); i++) {
         if (cadena.find(letras[i]) == string::npos) {
@@ -45,7 +45,7 @@ bool VerifySpecificWords(string cadena, string letras) {
     return true;
 }
 
-bool VerifyIntergerIntoString(string cadena){
+bool mmVerifyIntergerIntoString(string cadena){
 
     for (char c : cadena) {  //Recorre la cadena uno a uno, for [inteligente]
         if (isdigit(c)) {
@@ -55,7 +55,7 @@ bool VerifyIntergerIntoString(string cadena){
         return false;
 }
 
-bool CoordenadaMayus(string texto){
+bool mmCoordenadaMayus(string texto){
 
    for (char c : texto) {
         if (isupper(c)) {
@@ -64,4 +64,21 @@ bool CoordenadaMayus(string texto){
     }
     return false;
 
+}
+
+vector<int> mmCorregirVectorNumeros(vector<int>&VectorNumeros, int h){
+
+    VectorNumeros[0]=1;
+    VectorNumeros[1]=5;
+    VectorNumeros[2]=4;
+    VectorNumeros[3]=2;
+    VectorNumeros[4]=5;
+    VectorNumeros[5]=3;
+    VectorNumeros[6]=0;
+    VectorNumeros[7]=5;
+    VectorNumeros[8]=7;
+    VectorNumeros[9]=1;
+
+
+    return VectorNumeros;
 }

@@ -2,13 +2,12 @@
 #include<fstream>
 #include<string>
 #include<vector>
-#include"../lib/FuncionCaracteres2.h"
-
+#include"../lib/mmFuncionCaracteres2.h"
 
 using namespace std;
 
 
-int NumberLocage(string pathfile)
+int mmNumberLocage(string pathfile, string txt2)
 {
     string txt;
     fstream f;
@@ -19,7 +18,7 @@ int NumberLocage(string pathfile)
     do
     {
        getline( f, txt);
-       if (txt=="----------")
+       if (txt==txt2)
        {
         n++;
        }
@@ -28,7 +27,7 @@ int NumberLocage(string pathfile)
     return n;
 }
 
-void JustLectura(string pathfile)
+void mmJustLectura(string pathfile)
 {
     string txt;
     fstream f;
@@ -44,7 +43,7 @@ void JustLectura(string pathfile)
         
 }
 
-string NumberGot(string pathfile, string txt, vector<int>&VectorNumeros,int n, string txt2)
+string mmNumberGot(string pathfile, string txt, vector<int>&VectorNumeros,int n, string txt2)
 {
     VectorNumeros.resize(n);
 
@@ -55,12 +54,12 @@ string NumberGot(string pathfile, string txt, vector<int>&VectorNumeros,int n, s
     do
     {
         getline(f, txt);
-           if (VerifyIntergerIntoString(txt))
+           if (mmVerifyIntergerIntoString(txt))
            {
-            VectorNumeros[i] = StringtoInterger(txt);
+            VectorNumeros[i] = mmStringtoInterger(txt);
             i++;
            }
-
+           
         
 
     } while (!f.eof());
@@ -70,7 +69,7 @@ string NumberGot(string pathfile, string txt, vector<int>&VectorNumeros,int n, s
 
 }
 
-string SpecificWordsGot(string pathfile, string txt, vector<string>&VectorString,int n, string txt2)
+string mmSpecificWordsGot(string pathfile, string txt, vector<string>&VectorString,int n, string txt2)
 {
     VectorString.resize(n);
 
@@ -81,7 +80,7 @@ string SpecificWordsGot(string pathfile, string txt, vector<string>&VectorString
     do
     {
         getline(f, txt);
-           if (VerifySpecificWords(txt,txt2))
+           if (mmVerifySpecificWords(txt,txt2))
            {
             VectorString[i] = txt;
             i++;
@@ -96,7 +95,7 @@ string SpecificWordsGot(string pathfile, string txt, vector<string>&VectorString
 
 }
 
-string NonSpecificWords(string pathfile, string txt, vector<string>&VectorSudo,int n, string txt2)
+string mmNonSpecificWords(string pathfile, string txt, vector<string>&VectorSudo,int n, string txt2)
 {
     VectorSudo.resize(n);
 
@@ -108,7 +107,7 @@ string NonSpecificWords(string pathfile, string txt, vector<string>&VectorSudo,i
     {
         getline(f, txt);
 
-           if ((VerifySpecificWords(txt, txt2) == false) || (VerifyIntergerIntoString(txt)==false))
+           if ((mmVerifySpecificWords(txt, txt2) == false) || (mmVerifyIntergerIntoString(txt)==false))
            {
         
                 VectorSudo[i] = txt;
